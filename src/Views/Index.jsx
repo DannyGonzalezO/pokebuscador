@@ -41,11 +41,9 @@ function Index() {
           </InputGroup>
         </Col>
       </Row>
-      <Row classname="mt-3">
+      <Row className="mt-3">
         {pokemon.map((p,i) => (
-          <Col key={p.name}>
-            <PokemonBox name={p.name} key={i} />
-          </Col>
+        <PokemonBox name={p.name} key={i} />
         ))}
       </Row>
     </Container>
