@@ -58,7 +58,7 @@ const PokemonBox = (params) => {
   };
 
   return (
-    <Col sm="2" lg='2' className="mb-3">
+    <Col sm="4" lg='2' className="mb-3">
       <Card className='shadow pixel-border' >
         <CardImg src={imagen}  className="p-2" />
         <CardBody className='text-center'>
