@@ -1,7 +1,8 @@
 import { Container, Row, Col, InputGroup, InputGroupText, Input } from "reactstrap"
 import axios from "axios"
 import { useState, useEffect } from "react";
-import PokemonBox from "../Components/PokemonBox";    
+import PokemonBox from "../Components/PokemonBox"; 
+import "../styles/customStyles.css";   
 
 
 function Index() {
@@ -65,17 +66,17 @@ function Index() {
         }
 
   return (
-    <Container className="shadow bg-danger mt-3">
+    <Container className="mt-3">
       <Row>
-        <Col>
-          <h1>PokéBuscador</h1>
+        <Col className="custom-col pixel-font">
+          <h1>POKEBUSCADOR</h1>
         </Col>
       </Row>
       <Row>
         <Col>
           <InputGroup className="mt-3 mb-3 shadow">
             <InputGroupText><i className="fa-solid fa-search"></i></InputGroupText>
-            <Input value={filtro} onChange={(e) => {setFiltro(e.target.value)}} onKeyUpCapture={buscarPokemon} placeholder="Buscar Pokémon"></Input>
+            <Input value={filtro} onChange={(e) => {setFiltro(e.target.value)}} onKeyUpCapture={buscarPokemon} placeholder="Buscar Pokémon" className="pixel-font"></Input>
           </InputGroup>
         </Col>
       </Row>

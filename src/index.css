@@ -1,3 +1,4 @@
 .fondo{
-    background-color: #f5f5f5;
+    background-image: url('/img/fondo.png');
+    background-size: cover;
 }

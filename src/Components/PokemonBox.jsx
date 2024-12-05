@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 import axios from "axios"
 import {Col, Card, CardImg, CardBody, CardFooter, Badge} from "reactstrap"
 import "../styles/PokemonTypes.css";
+import "../styles/customStyles.css";
 
 // Se define la función PokemonBox, que con sus parametros muestra la información de un Pokemon.
 const PokemonBox = (params) => {
@@ -21,8 +22,11 @@ const PokemonBox = (params) => {
     axios.get(fuente).then( async (response) => {
       const respuesta = response.data;
       setPokemon(respuesta);
-      // Se obtiene la imagen del Pokemon, prioridad para el artwork Dream World, si no existe, se muestra el artwork oficial.
-      if (respuesta.sprites.other.dream_world.front_default != null) {
+      // Se obtiene la imagen del Pokemon, prioridad para el icono de 8va generacion, si no existe, se muestra el artwork de dream world, luego el oficial.
+      if (respuesta.sprites.versions['generation-viii'].icons.front_default != null) {
+        setImagen(respuesta.sprites.versions['generation-viii'].icons.front_default);
+      }
+      else if (respuesta.sprites.other.dream_world.front_default != null) {
         setImagen(respuesta.sprites.other.dream_world.front_default);
       } else {
         setImagen(respuesta.sprites.other['official-artwork'].front_default);}
@@ -54,19 +58,21 @@ const PokemonBox = (params) => {
   };
 
   return (
-    <Col sm="4" lg='3' className="mb-3">
-      <Card className='shadow border-4 border-warning'>
-        <CardImg src={imagen} height='150' className="p-2" />
+    <Col sm="2" lg='2' className="mb-3">
+      <Card className='shadow pixel-border' >
+        <CardImg src={imagen}  className="p-2" />
         <CardBody className='text-center'>
-          <Badge pill color="primary">#{pokemon.id}</Badge>
-          <label className=" fs-4 text-capitalize">{pokemon.name}</label>
+          <Badge pill color="primary" className="fs-9 pixel-font badge-top-left">#{pokemon.id}</Badge>
+          <label className="fs-7 text-capitalize pixel-font">{pokemon.name}</label>
         </CardBody>
         <CardFooter className="text-center">
+          <div className="type-container">
         {pokemon.types && pokemon.types.map((tipo, index) => (
-          <Badge key={index} className={typeColors[tipo.type.name] + " text-capitalize"}>
+          <Badge key={index} className={typeColors[tipo.type.name] + " text-capitalize pixel-font "}>
           {tipo.type.name}
           </Badge>
         ))}
+        </div>
         </CardFooter>
       </Card>
     </Col>

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+.pixel-border {
+  position: relative;
+  border: 4px solid #55D381; 
+  border-radius: 16px; 
+  padding: 0px;
+  box-shadow: 0 0 0 4px white, 0 0 0 8px black;
+}
+
+.pixel-border::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 4px solid #55D381; 
+  border-radius: 20px; 
+  box-shadow: 0 0 0 4px white;
+  z-index: -1;
+}
+  
+  .pixel-font {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .badge-top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1; 
+  }
+
+  .type-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .custom-col {
+    background-color: #FF8402; 
+    border: 2px solid white; 
+    border-radius: 16px;
+    padding: 10px; 
+  }
