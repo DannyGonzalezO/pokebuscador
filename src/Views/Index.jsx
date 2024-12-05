@@ -69,14 +69,14 @@ function Index() {
     <Container className="mt-3">
       <Row>
         <Col className="custom-col pixel-font">
-          <h1>POKEBUSCADOR</h1>
+          <h1>POKEBROWSER</h1>
         </Col>
       </Row>
       <Row>
         <Col>
           <InputGroup className="mt-3 mb-3 shadow">
             <InputGroupText><i className="fa-solid fa-search"></i></InputGroupText>
-            <Input value={filtro} onChange={(e) => {setFiltro(e.target.value)}} onKeyUpCapture={buscarPokemon} placeholder="Buscar Pokémon" className="pixel-font"></Input>
+            <Input value={filtro} onChange={(e) => {setFiltro(e.target.value)}} onKeyUpCapture={buscarPokemon} placeholder="Search Pokémon" className="pixel-font"></Input>
           </InputGroup>
         </Col>
       </Row>
